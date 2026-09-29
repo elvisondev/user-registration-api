@@ -27,7 +27,13 @@ Cada cadastro contém informações como:
 
 Permite filtrar os usuários cadastrados através do nome informado na requisição.
 
-> A busca por nome está em desenvolvimento e poderá receber melhorias na estratégia de filtragem.
+A busca atualmente:
+
+- Aceita nomes completos ou parciais;
+- Ignora diferenças entre letras maiúsculas e minúsculas;
+- Retorna todas as correspondências encontradas;
+- Valida se o parâmetro `name` foi informado;
+- Retorna `400 Bad Request` quando o parâmetro `name` não é informado.
 
 ---
 
@@ -47,8 +53,8 @@ Exemplo de resposta:
     "name": "Caio Monteiro",
     "cpf": "482.731.960-15",
     "email": "caio.monteiro@example.com",
-    "telefone": "(85) 98742-3160",
-    "cidade": "Fortaleza",
+    "telephone": "(85) 98742-3160",
+    "city": "Fortaleza",
     "uf": "CE"
   }
 ]
@@ -57,22 +63,38 @@ Exemplo de resposta:
 ### Buscar usuário por nome
 
 ```http
-GET /api/name?name=Rafael
+GET /api/name?name=Caio
 ```
+
+A busca pode retornar uma ou mais correspondências para o nome informado.
 
 Exemplo de resposta:
 
 ```json
 [
   {
-    "name": "Rafael",
-    "cpf": "394.628.150-07",
-    "email": "rafael@example.com",
-    "telefone": "(85) 99124-5837",
-    "cidade": "Fortaleza",
+    "name": "Caio Monteiro",
+    "cpf": "482.731.960-15",
+    "email": "caio.monteiro@example.com",
+    "telephone": "(85) 98742-3160",
+    "city": "Fortaleza",
     "uf": "CE"
+  },
+  {
+    "name": "Caio Fernandes",
+    "cpf": "603.175.920-48",
+    "email": "caio.fernandes@example.com",
+    "telephone": "(21) 99234-7185",
+    "city": "Niterói",
+    "uf": "RJ"
   }
 ]
+```
+
+Caso o parâmetro `name` não seja informado, a API retorna:
+
+```http
+400 Bad Request
 ```
 
 ---
@@ -82,7 +104,8 @@ Exemplo de resposta:
 ```text
 .
 ├── docs/
-│   └── app.md
+│   ├── app.md
+│   └── app.io
 │
 ├── src/
 │   ├── controllers/
@@ -97,7 +120,8 @@ Exemplo de resposta:
 │   │   └── registers.json
 │   │
 │   ├── routes/
-│   │   └── paths.ts
+│   │   ├── paths.ts
+│   │   └── routes.ts
 │   │
 │   ├── services/
 │   │   ├── user-list-service.ts
@@ -123,9 +147,31 @@ Exemplo de resposta:
 - **Services:** concentram o fluxo da aplicação e a montagem das respostas.
 - **Repositories:** realizam o acesso e a filtragem dos dados armazenados no JSON.
 - **Models:** definem os tipos e contratos utilizados pela aplicação.
-- **Routes:** reúne informações relacionadas às rotas e caminhos utilizados pelo projeto.
+- **Routes:** centralizam as rotas utilizadas pela API, incluindo `/api/list` e `/api/name`.
 - **Utils:** contém estruturas reutilizáveis, como métodos HTTP e códigos de status.
-- **Docs:** contém a documentação complementar sobre o funcionamento e integração da API.
+- **Docs:** reúne a documentação das especificações, funcionamento e arquitetura da aplicação.
+
+---
+
+## 📚 Documentação
+
+O projeto possui uma documentação complementar na pasta `docs/`:
+
+- `app.md` — contém as especificações da aplicação, funcionalidades, regras, rotas, comportamentos esperados e melhorias planejadas.
+- `app.io` — contém a representação visual da arquitetura e do fluxo da aplicação.
+
+---
+
+## ♻️ Refatorações realizadas
+
+Durante o desenvolvimento, alguns pontos da estrutura e do fluxo da aplicação foram aprimorados:
+
+- Separação e organização das rotas em `src/routes`;
+- Centralização das rotas `/api/list` e `/api/name`;
+- Refatoração do fluxo entre `app`, controller, service e repository;
+- Validação do parâmetro `name` na busca de usuários;
+- Busca por nome aprimorada para aceitar correspondências parciais e ignorar diferenças entre letras maiúsculas e minúsculas;
+- Organização da documentação técnica na pasta `docs`.mplementar sobre o funcionamento e integração da API.
 
 ---
 
@@ -195,6 +241,7 @@ npm run start:dist
 | `npm run dev:watch` | Executa em modo watch durante o desenvolvimento |
 | `npm run dist` | Gera a build utilizando tsup |
 | `npm run start:dist` | Gera a build e executa a aplicação |
+
 Para desenvolvimento, utilize o script correspondente configurado no projeto.
 
 ---
@@ -241,11 +288,11 @@ A separação das responsabilidades facilita a manutenção, compreensão e evol
 
 O projeto está em desenvolvimento e poderá receber melhorias como:
 
-- Tratamento de parâmetros inválidos ou ausentes;
-- Melhoria da busca de usuários por nome;
-- Refatoração do fluxo de parâmetros entre aplicação, controller e service;
-- Tratamento de rotas não encontradas;
-- Expansão dos endpoints da API.
+- Implementar tratamento específico quando nenhum usuário corresponder à busca;
+- Implementar `404 Not Found` para buscas sem correspondência;
+- Melhorar a estratégia de busca por nome e sobrenome;
+- Tratar rotas não encontradas;
+- Expandir os endpoints da API.
 
 ---
 
