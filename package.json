@@ -1,0 +1,21 @@
+{
+  "name": "api-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx --env-file=.env src/server.ts",
+    "dev:watch": "tsx watch --env-file=.env src/server.ts",
+    "dist": "tsup src",
+    "start:dist": "npm run dist && --env-file=.env node src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^26.6.3",
+    "tsup": "^8.5.1",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "nome": "Caio Monteiro",
+    "cpf": "482.731.960-15",
+    "email": "caio.monteiro@example.com",
+    "telefone": "(85) 98742-3160",
+    "cidade": "Fortaleza",
+    "uf": "CE"
+  },
+  {
+    "nome": "Larissa Andrade",
+    "cpf": "715.204.830-62",
+    "email": "larissa.andrade@example.com",
+    "telefone": "(11) 97631-8425",
+    "cidade": "Campinas",
+    "uf": "SP"
+  },
+  {
+    "name": "Rafael",
+    "cpf": "394.628.150-07",
+    "email": "rafael@example.com",
+    "telefone": "(85) 99124-5837",
+    "cidade": "Fortaleza",
+    "uf": "CE"
+  }
+]
