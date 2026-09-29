@@ -1,3 +1,5 @@
+// * DEFINE OS CÓDIGOS DE STATUS HTTP UTILIZADOS PELA API
+
 export enum StatusCode {
   OK = 200,
   CREATED = 201,

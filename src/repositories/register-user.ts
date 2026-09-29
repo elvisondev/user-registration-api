@@ -13,7 +13,7 @@ export const usersList = async (name?: string): Promise<RegisterModel[]> => {
   let jsonFile = JSON.parse(rawRegister)
 
   if (name) {
-    jsonFile = jsonFile.filter((user: RegisterModel) => user.name === name)
+    jsonFile = jsonFile.filter((user: RegisterModel) => user.name.toLowerCase().includes(name.toLowerCase()))
   }
 
   return jsonFile

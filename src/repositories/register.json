@@ -1,26 +1,58 @@
 [
   {
-    "nome": "Caio Monteiro",
+    "name": "Caio Monteiro",
     "cpf": "482.731.960-15",
     "email": "caio.monteiro@example.com",
-    "telefone": "(85) 98742-3160",
-    "cidade": "Fortaleza",
+    "telephone": "(85) 98742-3160",
+    "city": "Fortaleza",
     "uf": "CE"
   },
   {
-    "nome": "Larissa Andrade",
+    "name": "Larissa Andrade",
     "cpf": "715.204.830-62",
     "email": "larissa.andrade@example.com",
-    "telefone": "(11) 97631-8425",
-    "cidade": "Campinas",
+    "telephone": "(11) 97631-8425",
+    "city": "Campinas",
     "uf": "SP"
   },
   {
-    "name": "Rafael",
+    "name": "Rafael Castro",
     "cpf": "394.628.150-07",
-    "email": "rafael@example.com",
-    "telefone": "(85) 99124-5837",
-    "cidade": "Fortaleza",
+    "email": "rafael.castro@example.com",
+    "telephone": "(85) 99124-5837",
+    "city": "Fortaleza",
     "uf": "CE"
+  },
+  {
+    "name": "Caio Fernandes",
+    "cpf": "603.175.920-48",
+    "email": "caio.fernandes@example.com",
+    "telephone": "(21) 99234-7185",
+    "city": "Niterói",
+    "uf": "RJ"
+  },
+  {
+    "name": "Larissa Martins",
+    "cpf": "528.406.710-93",
+    "email": "larissa.martins@example.com",
+    "telephone": "(31) 98851-4267",
+    "city": "Belo Horizonte",
+    "uf": "MG"
+  },
+  {
+    "name": "Bruno Almeida",
+    "cpf": "841.297.630-26",
+    "email": "bruno.almeida@example.com",
+    "telephone": "(51) 99762-1354",
+    "city": "Porto Alegre",
+    "uf": "RS"
+  },
+  {
+    "name": "Mariana Souza",
+    "cpf": "276.915.480-31",
+    "email": "mariana.souza@example.com",
+    "telephone": "(41) 98643-5721",
+    "city": "Curitiba",
+    "uf": "PR"
   }
 ]
